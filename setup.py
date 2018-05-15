@@ -32,7 +32,7 @@ Overwriting Json decoder/encoder usage is possible.""",
 if 'install' in sys.argv:
   _has_json = False
   _has_ssl = False
-  
+
   try:
     import json
     _has_json = True
@@ -42,39 +42,35 @@ if 'install' in sys.argv:
       _has_json = True
     except ImportError:
       _has_json = False
-  
+
   try:
     import ssl
     _has_ssl = True
   except ImportError:
     _has_ssl = False
-  
+
   if version < '2.4':
-    print "\n!!! Python below version 2.4 is not officially supported.!!!"
-  
+    print("\n!!! Python below version 2.4 is not officially supported.!!!")
+
   if (not _has_ssl or not _has_json):
-    print "------------------------------------------------------------"
+    print("------------------------------------------------------------")
     if (not _has_ssl):
-      print """
- o  SSL support is missing from your installation of python! (module 'ssl')\n"""
-      
+      print("\n o  SSL support is missing from your installation of python! (module 'ssl')\n")
+
     if (not _has_json):
-      print """
- o  JSON support is missing from your installation of python!"""
+      print("\n o  JSON support is missing from your installation of python!")
       if (version < '2.6'):
-        print "\n You will need to install simplejson",
+        print( "\n You will need to install simplejson",)
         #simplejson (>=2.2)
       if (version >='2.4' and version < '2.5'):
-        print " v2.1.0"
+        print(" v2.1.0")
         #simplejson (=2.1)
       if (version < '2.4'):
-        print " v2.0.0"
+        print(" v2.0.0")
         #simplejson (>=2.2)
-        print "\n or some other json encoder/decoder and overwrite the\n WebSmsComToolkit.JsonWrapper class"
-      
-    print """
-------------------------------------------------------------"""
-  
+        print("\n or some other json encoder/decoder and overwrite the\n WebSmsComToolkit.JsonWrapper class")
+
+    print("\n------------------------------------------------------------")
 
 from distutils.core import setup
 
